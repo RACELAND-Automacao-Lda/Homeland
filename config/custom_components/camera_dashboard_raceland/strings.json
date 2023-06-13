@@ -1,0 +1,24 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Camera Dashboard",
+        "description": "Set parameters of the integration",
+        "data": {
+          "dev_mode": "Turn on developer mode"
+        }
+    }
+  }
+},
+"options": {
+  "step": {
+    "init": {
+      "title": "Camera Dashboard",
+      "description": "Set parameters of the integration",
+      "data": {
+        "dev_mode": "Turn on developer mode"
+    }
+  }
+  }
+  }
+}

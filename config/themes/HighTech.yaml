@@ -1,0 +1,229 @@
+HighTech:
+
+  background-image: 'center / cover no-repeat url("/local/wallpapers/landscape2.jpg") fixed'
+  primary-background-color: 'var(--background-image)'
+  # Raquel:
+  raquel-white: "#FFFFFF"
+  raquel-grey: "#F2F1F6"
+  raquel-blue-1: "#D6FEFE"
+  raquel-blue-2: "#5EEEEE"
+  raquel-blue-3: "#01C5FF"
+  raquel-blue-4: "#1B6A89"
+  raquel-cards: "#1A3E47"
+  raquel-background: "#0F1C2C"
+  raquel-dark-1: "#303033"
+  raquel-dark-2: "#A3ABAE"
+
+  # main colors
+  primary-color: var(--raquel-cards)
+  accent-color: var(--raquel-blue-2)
+  # Backgrounds
+  # primary-background-color: var(--raquel-background)
+  secondary-background-color: var(--raquel-grey)
+  card-background-color: var(--raquel-cards)
+  header-card-picker-background: var(--raquel-dark-2)
+  # Text
+  primary-text-color: var(--raquel-white)
+  secondary-text-color: var(--raquel-grey)
+  disabled-text-color: "#545454"
+  app-header-text-color: var(--raquel-white)
+  header-text-color: var(--raquel-white)
+   # Switches
+  switch-checked-button-color: var(--accent-color)
+  switch-checked-track-color: var(--accent-color)
+  switch-unchecked-button-color: var(--raquel-dark-1)
+  switch-unchecked-track-color: var(--raquel-dark-2)
+  # Other colors
+  divider-color: rgba(225, 225, 225, .20)
+  # divider-color: "rgba(47, 47, 61, 0.12)"
+  mdc-ripple-color: "#AAAAAA"
+
+   # novas variaveis
+  background-color-rgb: rgb(26,62,71)
+  background-color-rgb-hover: rgba(94,238,238,0.4)
+  error-color: "#FF0000"
+  ha-fab-text-color: var(--raquel-dark-1)
+  paper-slider-disabled-knob-color: var(--accent-color)
+  slider-color: var(--accent-color)
+  app-header-edit-background-color: var(--raquel-blue-2)
+  app-header-selection-bar-color: var(--raquel-white)
+  form-border: var(--raquel-white)
+  divider-editor: rgba(255, 255, 255, 0.3)
+  sidebar-text-color-select: var(--raquel-blue-2)
+  sidebar-icon-color-select: var(--raquel-blue-2)
+  app-header-edit-text-color: var(--raquel-white)
+
+   # States and Badges
+  state-icon-color: var(--raquel-grey)
+  state-icon-active-color: var(--raquel-blue-2)
+
+  input-idle-line-color: rgba(255, 255, 255, 0.42)
+  input-hover-line-color: rgba(255, 255, 255, 0.87)
+  input-disabled-line-color: rgba(255, 255, 255, 0.06)
+  input-outlined-idle-border-color: rgba(255, 255, 255, 0.38)
+  input-outlined-hover-border-color: rgba(255, 255, 255, 0.87)
+  input-outlined-disabled-border-color: rgba(255, 255, 255, 0.06)
+  input-fill-color: var(--raquel-cards)
+  input-disabled-fill-color: rgba(255, 255, 255, 0.02)
+  input-ink-color: rgba(255, 255, 255, 0.87)
+  input-label-ink-color: var(--raquel-dark-2)
+  input-disabled-ink-color: rgba(255, 255, 255, 0.37)
+  input-dropdown-icon-color: rgba(255, 255, 255, 0.54)
+
+  codemirror-keyword: "#C792EA"
+  codemirror-operator: "#89DDFF"
+  codemirror-variable: "#f07178"
+  codemirror-variable-2: "#EEFFFF"
+  codemirror-variable-3: "#DECB6B"
+  codemirror-builtin: "#FFCB6B"
+  codemirror-atom: "#F78C6C"
+  codemirror-number: "#FF5370"
+  codemirror-def: "#82AAFF"
+  codemirror-string: "#C3E88D"
+  codemirror-string-2: "#f07178"
+  codemirror-comment: "#545454"
+  codemirror-tag: "#FF5370"
+  codemirror-meta: "#FFCB6B"
+  codemirror-attribute: "#C792EA"
+  codemirror-property: "#C792EA"
+  codemirror-qualifier: "#DECB6B"
+  codemirror-type: "#DECB6B"
+  energy-grid-return-color: "#a280db"
+  mdc-switch__pointer_events: auto
+
+
+  state-icon-error-color: var(--error-state-color var(--error-color))
+  state-unavailable-color:
+    var(--state-icon-unavailable-color var(--disabled-text-color))
+  sidebar-text-color: var(--secondary-text-color)
+  sidebar-background-color: var(--card-background-color)
+  sidebar-selected-text-color: var(--sidebar-text-color-select)
+  sidebar-selected-icon-color: var(--sidebar-icon-color-select)
+  sidebar-icon-color: var(--secondary-text-color)
+  switch-checked-color: var(--primary-text-color)
+  # switch-checked-button-color:
+  #   var(--switch-checked-color var(--primary-background-color))
+  # switch-checked-track-color: var(--switch-checked-color #000000)
+  # switch-unchecked-button-color:
+  #   var(--switch-unchecked-color var(--primary-background-color))
+  # switch-unchecked-track-color: var(--switch-unchecked-color #000000)
+  slider-secondary-color: var(--light-primary-color)
+  slider-track-color: var(--scrollbar-thumb-color)
+  label-badge-background-color: var(--card-background-color)
+  label-badge-text-color: rgba(var(--rgb-primary-text-color) 0.8)
+  paper-listbox-background-color: var(--card-background-color)
+  paper-item-icon-color: var(--state-icon-color)
+  paper-item-icon-active-color: var(--state-icon-active-color)
+  table-row-background-color: var(--primary-background-color)
+  table-row-alternative-background-color: var(--secondary-background-color)
+  paper-slider-knob-color: var(--slider-color)
+  paper-slider-knob-start-color: var(--slider-color)
+  paper-slider-pin-color: var(--slider-color)
+  paper-slider-pin-start-color: var(--slider-color)
+  paper-slider-active-color: var(--slider-color)
+  paper-slider-secondary-color: var(--slider-secondary-color)
+  paper-slider-container-color: var(--slider-track-color)
+  data-table-background-color: var(--card-background-color)
+  markdown-code-background-color: var(--primary-background-color)
+
+  # // https://github.com/material-components/material-web/blob/master/docs/theming.md
+  mdc-theme-primary: var(--accent-color)
+  mdc-theme-secondary: var(--accent-color)
+  mdc-theme-background: var(--input-fill-color)
+  mdc-theme-surface: var(--card-background-color)
+  mdc-theme-on-primary: var(--primary-text-color)
+  mdc-theme-on-secondary: var(--app-header-text-color)
+  mdc-theme-on-surface: var(--primary-text-color)
+  mdc-theme-text-disabled-on-light: var(--disabled-text-color)
+  mdc-theme-text-primary-on-background: var(--primary-text-color)
+  mdc-theme-text-secondary-on-background: var(--secondary-text-color)
+  mdc-theme-text-hint-on-background: var(--secondary-text-color)
+  mdc-theme-text-icon-on-background: var(--secondary-text-color)
+  mdc-theme-error: var(--error-color)
+  app-header-background-color: var(--primary-color)
+  mdc-checkbox-unchecked-color: var(--primary-text-color)
+  mdc-checkbox-disabled-color: var(--disabled-text-color)
+  mdc-radio-unchecked-color: rgba(var(--rgb-primary-text-color), 0.54)
+  mdc-radio-disabled-color: var(--disabled-text-color)
+  mdc-tab-text-label-color-default: var(--primary-text-color)
+  mdc-button-disabled-ink-color: var(--disabled-text-color)
+  mdc-button-outline-color: var(--divider-color)
+  mdc-dialog-scroll-divider-color: var(--divider-color)
+
+  mdc-text-field-idle-line-color: var(--input-idle-line-color)
+  mdc-text-field-hover-line-color: var(--input-hover-line-color)
+  mdc-text-field-disabled-line-color: var(--input-disabled-line-color)
+  mdc-text-field-outlined-idle-border-color:
+    var(--input-outlined-idle-border-color)
+  mdc-text-field-outlined-hover-border-color:
+    var(--input-outlined-hover-border-color)
+  mdc-text-field-outlined-disabled-border-color:
+    var(--input-outlined-disabled-border-color)
+  mdc-text-field-fill-color: var(--input-fill-color)
+  mdc-text-field-disabled-fill-color: var(--input-disabled-fill-color)
+  mdc-text-field-ink-color: var(--input-ink-color)
+  mdc-text-field-label-ink-color: var(--input-label-ink-color)
+  mdc-text-field-disabled-ink-color: var(--input-disabled-ink-color)
+
+  mdc-select-idle-line-color: var(--input-idle-line-color)
+  mdc-select-hover-line-color: var(--input-hover-line-color)
+  mdc-select-outlined-idle-border-color:
+    var(--input-outlined-idle-border-color)
+  mdc-select-outlined-hover-border-color:
+    var(--input-outlined-hover-border-color)
+  mdc-select-outlined-disabled-border-color:
+    var(--input-outlined-disabled-border-color)
+  mdc-select-fill-color: var(--input-fill-color)
+  mdc-select-disabled-fill-color: var(--input-disabled-fill-color)
+  mdc-select-ink-color: var(--input-ink-color)
+  mdc-select-label-ink-color: var(--input-label-ink-color)
+  mdc-select-disabled-ink-color: var(--input-disabled-ink-color)
+  mdc-select-dropdown-icon-color: var(--input-dropdown-icon-color)
+  mdc-select-disabled-dropdown-icon-color: var(--input-disabled-ink-color)
+
+  chip-background-color: rgba(var(--rgb-primary-text-color), 0.15)
+  # // Vaadin
+  material-body-text-color: var(--primary-text-color)
+  material-background-color: var(--card-background-color)
+  material-secondary-background-color: var(--secondary-background-color)
+  material-secondary-text-color: var(--secondary-text-color)
+
+
+  # light-primary-color: "#337efb" #alterei isto
+  # paper-card-background-color: rgba(48, 48, 51, 0.9) #"#1d1d1d"
+  # # ha-card-border-radius: "25px"
+  # paper-grey-200: "#191919"
+  # paper-item-icon-color: "#d3d3d3"
+  # paper-listbox-background-color: "#202020"
+  # sidebar-background-color: "#1e1e28"  #"#24434e" #alterei isto
+  # sidebar-text_-_background: "#62717b"
+  # sidebar-text-color: "#ffffff"
+  # sidebar-icon-color: rgb(95, 99, 104)
+  # # sidebar-selected-background-color: "var(--primary-background-color)" #sidebar box border color
+  # sidebar-selected-icon-color: "#337efb"
+  # sidebar-selected-text-color: "#337efb"
+  # paper-card-header-color: "var(--paper-item-icon-color)"
+  # paper-item-icon-active-color: "#fdd835" #muda a cor dos icons quando estão ligados
+  # paper-item-icon_-_color: "#ffffff"
+  # paper-listbox-color: "var(--primary-text-color)"
+  # paper-grey-50: "var(--primary-text-color)"
+  # paper-slider-active-color: "var(--primary-color)"
+  # paper-slider-knob-color: "var(--primary-color)"
+  # paper-slider-knob-start-color: "var(--primary-color)"
+  # paper-slider-pin-color: "var(--primary-color)"
+  # paper-slider-secondary-color: "var(--light-primary-color)"
+  # paper-toggle-button-checked-ink-color: "var(--dark-primary-color)"
+  # paper-toggle-button-checked-button-color: "var(--primary-color)"
+  # paper-toggle-button-checked-bar-color: "var(--light-primary-color)"
+  # paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"
+  # secondary-text-color: "var(--primary-color)"
+  # table-row-background-color: "var(--paper-card-background-color)"
+  # table-row-alternative-background-color: "var(--sidebar-text_-_background)"
+  # varborder: solid
+  # varradi: 5px
+  # skew-iron-selected: "skew(10deg)"
+  # iron-selected-opacity: 0,3 #adicionei isto
+  # sidebar-color-border: "#337efb" #adicionei isto
+  # background-video: "/local/videdim/hightech.mp4" #alterei isto
+  # ### Border Radius and Box Shadow - ADICIONADO ISTO
+  # border-radius: 25px

@@ -1,0 +1,7 @@
+lovelace-dashboard:
+  mode: yaml
+  title: Lovelace dashboard
+  icon: mdi:pencil
+  show_in_sidebar: true
+  filename: lovelace-dashboard.yaml
+  require_admin: true

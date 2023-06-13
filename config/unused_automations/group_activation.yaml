@@ -1,0 +1,106 @@
+blueprint:
+  name: group
+  description: group_description
+  icon: "M15 14V16A1 1 0 0 1 14 17H10A1 1 0 0 1 9 16V14A5 5 0 1 1 15 14M14 18H10V19A1 1 0 0 0 11 20H13A1 1 0 0 0 14 19M7 19V18H5V19A1 1 0 0 0 6 20H7.17A2.93 2.93 0 0 1 7 19M5 10A6.79 6.79 0 0 1 5.68 7A4 4 0 0 0 4 14.45V16A1 1 0 0 0 5 17H7V14.88A6.92 6.92 0 0 1 5 10M17 18V19A2.93 2.93 0 0 1 16.83 20H18A1 1 0 0 0 19 19V18M18.32 7A6.79 6.79 0 0 1 19 10A6.92 6.92 0 0 1 17 14.88V17H19A1 1 0 0 0 20 16V14.45A4 4 0 0 0 18.32 7Z"
+  group: multiple
+  domain: automation
+  input:
+    device_trigger:
+      name: device_trigger_name
+      description: device_trigger_description
+      selector:
+        entity:
+          domain: light
+    device_action_state:
+      name: follow_state
+      description: follow_state_description
+      default: 'Same state'
+      selector:
+        select:
+          options:
+            - 'Same state'
+            - 'Opposite state'
+    switch_target:
+      name: switch_target_name
+      description: device_action_switch_description
+      default: {}
+      selector:
+        target:
+          entity:
+            domain: switch
+    light_target:
+      name: light_target_name
+      description: device_action_light_description
+      default: {}
+      selector:
+        target:
+          entity:
+            domain: light
+
+variables:
+  light_target: !input light_target
+  switch_target: !input switch_target
+  device_trigger: !input device_trigger
+  device_action_state: !input device_action_state
+  opposite_state: >
+    {% if device_action_state == 'Same state' %}
+      {{ states(device_trigger) }}
+    {% else %}
+      {{ 'off' if is_state(device_trigger, 'on') else 'on' }}
+    {% endif %}
+
+
+trigger:
+  platform: state
+  entity_id: !input device_trigger
+
+condition: []
+
+action:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: !input device_trigger
+            state: 'on'
+          - condition: template
+            value_template: "{{ device_action_state == 'Same state' or device_action_state == 'Opposite state' }}"
+        sequence:
+          - service_template: >
+              {% if device_action_state == 'Opposite state' %}
+                homeassistant.turn_{{ opposite_state }}
+              {% else %}
+                homeassistant.turn_on
+              {% endif %}
+            target: !input switch_target
+          - service_template: >
+              {% if device_action_state == 'Opposite state' %}
+                homeassistant.turn_{{ opposite_state }}
+              {% else %}
+                homeassistant.turn_on
+              {% endif %}
+            target: !input light_target
+      - conditions:
+          - condition: state
+            entity_id: !input device_trigger
+            state: 'off'
+          - condition: template
+            value_template: "{{ device_action_state == 'Same state' or device_action_state == 'Opposite state' }}"
+        sequence:
+          # - delay:
+          #     minutes: "{{ no_motion_wait }}"
+          - service_template: >
+              {% if device_action_state == 'Opposite state' %}
+                homeassistant.turn_{{ opposite_state }}
+              {% else %}
+                homeassistant.turn_off
+              {% endif %}
+            target: !input switch_target
+          - service_template: >
+              {% if device_action_state == 'Opposite state' %}
+                homeassistant.turn_{{ opposite_state }}
+              {% else %}
+                homeassistant.turn_off
+              {% endif %}
+            target: !input light_target
+
+

@@ -1,0 +1,10 @@
+turn_on_lights:
+  alias: Turn lights on
+  sequence: 
+    - service: switch.turn_on
+      data: 
+        entity_id: switch.escritorio_av
+    - service: switch.turn_on
+      data: 
+        entity_id: switch.raceland_1c9dc2c10078_switch_relay_1
+    

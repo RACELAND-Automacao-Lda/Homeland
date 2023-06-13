@@ -1,0 +1,78 @@
+blueprint:
+  name: enter_zone
+  description: enter_zone_description
+  icon: "M9 11.5C7.62 11.5 6.5 10.38 6.5 9S7.62 6.5 9 6.5 11.5 7.62 11.5 9 10.38 11.5 9 11.5M9 2C5.13 2 2 5.13 2 9C2 14.25 9 22 9 22S16 14.25 16 9C16 5.13 12.87 2 9 2M18 17L23 12L18 7V17Z"
+  group: zone
+  domain: automation
+  input:
+    person_entity:
+      name: person_entity_name
+      description: person_entity_description
+      selector:
+        entity:
+          domain: device_tracker
+    zone_entity:
+      name: zone_entity_name
+      description: zone_entity_description
+      selector:
+        entity:
+          domain: zone
+    optional_input:
+      name: action_state
+      description: action_state_description
+      default: 'Turn On'
+      selector:
+        select:
+          options:
+            - 'Turn On'
+            - 'Turn Off'
+    switch_target:
+      name: switch_target_name
+      description: device_action_switch_description
+      default: {}
+      selector:
+        target:
+          entity:
+            domain: switch
+    light_target:
+      name: light_target_name
+      description: device_action_light_description
+      default: {}
+      selector:
+        target:
+          entity:
+            domain: light
+trigger:
+  platform: state
+  entity_id: !input person_entity
+
+
+variables:
+  zone_entity: !input zone_entity
+  light_target: !input light_target
+  switch_target: !input switch_target
+  # This is the state of the person when it's in this zone.
+  zone_state: "{{ states[zone_entity].name }}"
+  person_entity: !input person_entity
+  person_name: "{{ states[person_entity].name }}"
+  optional_input: !input optional_input
+
+condition:
+  condition: template
+  value_template: "{{ trigger.from_state.state != zone_state and trigger.to_state.state == zone_state }}"
+
+action:
+  - choose:
+      - conditions: "{{ light_target|length > 0 and switch_target|length > 0 and optional_input == 'Turn On' }}"
+        sequence:
+          - service: homeassistant.turn_on
+            target: !input switch_target
+          - service: homeassistant.turn_on
+            target: !input light_target
+      - conditions: "{{ light_target|length > 0 and switch_target|length > 0 and optional_input == 'Turn Off' }}"
+        sequence:
+          - service: homeassistant.turn_off
+            target: !input switch_target
+          - service: homeassistant.turn_off
+            target: !input light_target
+    default: []

@@ -1,0 +1,226 @@
+title: Lovelace dashboard
+views:
+  - title: Floor Plan
+    panel: true
+    cards:
+      - type: picture-elements
+        image: https://demo.home-assistant.io/stub_config/floorplan.png
+        elements:
+          - type: icon
+            title: Living room camera
+            icon: mdi:cctv
+            entity: camera.hd_ipc_profile_000
+            style:
+              --top: 13.5%
+              --left: 92%
+              --top-desktop: 15%
+              --left-desktop: 73%
+              --top-land: 10%
+              --left-land: 72%
+              --icon-size: 20px
+              --fill-color: var(--accent-color)
+          # - type: service-button
+          #   title: Turn Lights Off
+          #   service: homeassistant.turn_off
+          #   service_data:
+          #     entity_id: switch.raver5
+          #   style:
+          #     top: 17%
+          #     left: 15%
+          # - type: state-badge
+          #   entity: sensor.cph2005_battery_level
+          #   style:
+          #     top: 30%
+          #     left: 30%
+          #     font-size: 15px
+          - type: state-icon
+            title: Living room Lights
+            icon: mdi:ceiling-light-multiple
+            tap_action: 
+              action: more-info
+            entity: switch.escritorio_av
+            style:
+              --top: 31%
+              --left: 46%
+              --top-desktop: 32%
+              --left-desktop: 49%
+              --top-land: 32%
+              --left-land: 48%
+              --icon-size: 20px
+          - type: state-icon
+            title: Kitchen Lights
+            icon: mdi:ceiling-light
+            tap_action: 
+              action: more-info
+            entity: switch.raceland_1c9dc2c10078_switch_relay_1
+            style:
+              --top: 29%
+              --left: 12%
+              --top-desktop: 31%
+              --left-desktop: 29%
+              --top-land: 28%
+              --left-land: 29%
+              --icon-size: 20px
+              ####################################
+          - type: state-icon
+            title: Hall Lights
+            icon: mdi:coach-lamp
+            tap_action: 
+              action: more-info
+            entity: light.raver_1_plus
+            show_sensor: true
+            sensor: binary_sensor.switch1
+            style:
+              --top: 22%
+              --left: 73%
+              --top-desktop: 21%
+              --left-desktop: 62.5%
+              --top-land: 21%
+              --left-land: 62.5%
+              --icon-size: 20px
+              #######################################
+          - type: state-icon
+            title: Room Lights
+            icon: mdi:floor-lamp-dual
+            tap_action: 
+              action: more-info
+            entity: light.rgbw_and_w
+            style:
+              --top: 61%
+              --left: 76%
+              --top-desktop: 62%
+              --left-desktop: 64%
+              --top-land: 62%
+              --left-land: 63%
+              --icon-size: 20px
+
+          - type: state-icon
+            title: Motion sensor
+            entity: binary_sensor.lumi_lumi_sensor_motion_aq2_b0f43608_ias_zone
+            style:
+              --top: 61%
+              --left: 31%
+              --top-desktop: 62%
+              --left-desktop: 40%
+              --top-land: 58%
+              --left-land: 39%
+              --icon-size: 20px
+          # - type: icon
+          #   title: Living room camera
+          #   icon: mdi:cctv
+          #   entity: camera.hd_ipc_profile_000
+          #   style:
+          #     top: 16.5%
+          #     left: 95%
+          #     --mdc-icon-size: 35px
+          #     --fill-color: var(--accent-color)
+          - type: icon
+            title: Living room camera
+            icon: mdi:cctv
+            entity: camera.ai_camera
+            style:
+              --top: 81.5%
+              --left: 92%
+              --top-desktop: 81.5%
+              --left-desktop: 73%
+              --top-land: 81.5%
+              --left-land: 72%
+              transform: rotateX(180deg)
+              --icon-size: 20px
+              --fill-color: var(--accent-color)
+          - type: icon
+            title: Living room camera
+            icon: mdi:cctv
+            entity: camera.ai_camera
+            style:
+              --top: 85%
+              --left: 4%
+              --top-desktop: 85%
+              --left-desktop: 25%
+              --top-land: 81%
+              --left-land: 25%
+              transform: rotateY(180deg)
+              --icon-size: 20px
+              --fill-color: var(--accent-color)
+          - type: state-icon
+            title: Climate sensor
+            icon: racl:thermometer
+            entity: climate.estagio_hvac
+            style:
+              --top: 76%
+              --left: 46%
+              --top-desktop: 77%
+              --left-desktop: 48%
+              --top-land: 77%
+              --left-land: 47.5%
+              --icon-size: 20px
+              --fill-color: "#eb6200"
+          - type: state-label
+            title: Climate sensor label
+            label_element: true
+            entity: climate.estagio_hvac
+            style:
+              --top: 80%
+              --left: 42%
+              --top-desktop: 80%
+              --left-desktop: 47%
+              --top-land: 82%
+              --left-land: 46%
+              --icon-size: 20px
+              --fill-color: "#eb6200"
+          # - type: icon
+          #   title: Living room camera
+          #   icon: mdi:cctv
+          #   entity: camera.hd_ipc_profile_000
+          #   style:
+          #     top: 81.5%;
+          #     left: 93%;
+          #     transform: rotateX(180deg);
+          #     --mdc-icon-size: 35px
+          #     --fill-color: var(--accent-color)
+          # - type: image
+          #   entity: light.philips_7602031p7_02b0e90b_level_light_color_on_off
+          #   tap_action:
+          #     action: toggle
+          #   image: https://i.postimg.cc/3NXKVRTq/light.png
+          #   state_image:
+          #     "off": https://i.postimg.cc/3NXKVRTq/light.png
+          #   style:
+          #     top: 20%
+          #     left: 40%
+          #     width: 15%
+          #     height: 15%
+          #     --icon-size: 35px
+          # - type: icon
+          #   icon: mdi:fullscreen
+          #   title: Living room floor Plan
+          #   tap_action:
+          #     action: navigate
+          #   navigation_path: /lovelace-dashboard/1
+          #   style:
+          #     top: 80%
+          #     left: 80%
+          # - type: service-button
+          #   title: Turn lights Off
+          #   service: script.turn_on_lights
+          #   style:
+          #     top: 10%
+          #     left: 5%
+
+  - title: Living room
+    panel: true
+    cards:
+      - type: picture-elements
+        image: https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2015%2F04%2F23%2F22%2F00%2Ftree-736885__480.jpg&imgrefurl=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fnature%2F&tbnid=GOm7hFq2LnbWrM&vet=12ahUKEwjL5-jpiKz9AhXbV6QEHZlBA_IQMygCegUIARC-AQ..i&docid=Ba_eiczVaD9-zM&w=771&h=480&itg=1&q=image&ved=2ahUKEwjL5-jpiKz9AhXbV6QEHZlBA_IQMygCegUIARC-AQ
+        elements:
+          - type: icon
+            title: Living room camera
+            icon: mdi:cctv
+            entity: camera.hd_ipc_profile_000
+            style:
+              top: 18%
+              left: 90%
+              '--iron-icon-fill-color': '#11AB7D'
+              '--iron-icon-height': 40px
+              '--iron-icon-width': 40px
+              transform: none

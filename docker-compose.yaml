@@ -1,0 +1,61 @@
+version: '3'
+services: 
+
+  #Builds alpine image
+  alpine:
+    image: automacaoraceland/homeland-alpine
+    build: 
+      context: './docker-base/alpine/'
+      #args: 
+      ##BASHIO: "https://github.com/RACELAND-Automacao-Lda/bashio/releases/download/v0.14.3/v0.14.3.tar.gz"
+      ##TEMPIO: "https://github.com/RACELAND-Automacao-Lda/tempio/releases/download/2021.09.0/tempio_amd64" 
+      ##S6_OVERLAY: "https://github.com/RACELAND-Automacao-Lda/s6-overlay/releases/download/v2.1.0.2/s6-overlay-amd64.tar.gz"
+      ##JEMALLOC: "https://github.com/RACELAND-Automacao-Lda/jemalloc.git"
+
+  #builds python image on top of alpine        
+  python3_9: 
+    image: automacaoraceland/homeland-python
+    build: 
+      context: './docker-base/python/3.9/'
+      args: 
+        BUILD_FROM: automacaoraceland/homeland-alpine
+        PYTHON_VERSION: 3.9.9
+        PIP_VERSION: 22.0.2
+    depends_on: 
+      - alpine
+  
+  #build docker base image on top of alpine-python
+  dockerbase: 
+    image: automacaoraceland/homeland-base
+    build: 
+      context: './docker'
+      args:
+        BUILD_FROM: automacaoraceland/homeland-python
+        BUILD_ARCH: amd64
+        SSOCR_VERSION: 2.21.0
+        ARPSCAN_VERSION: 1.9.7
+        LIBCEC_VERSION: 6.0.2
+        PICOTTS_HASH: e3ba46009ee868911fa0b53db672a55f9cc13b1c
+        IPERF3_VERSION: 3.9
+        TELLDUS_COMMIT: 2598bbed16ffd701f2a07c99582f057a3decbaf3
+        WHEELS_LINKS: 'https://pipy.raceland-sa.com/simple' 
+    depends_on: 
+      - python3_9
+       
+  #builds homeassistant image on top of docker-base and runs it       
+  homeassistant:
+    container_name: automacaoraceland/homeland
+    build: 
+      context: './core/'
+      args: 
+        BUILD_FROM: automacaoraceland/homeland-base
+        WHEELS_LINKS: 'https://pipy.raceland-sa.com/simple/'
+    depends_on: 
+      - dockerbase
+    volumes: 
+      - ./configprod:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+

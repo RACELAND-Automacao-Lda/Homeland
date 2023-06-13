@@ -1,0 +1,139 @@
+- id: '1669656580982'
+  alias: GPS Automation
+  description: ''
+  trigger:
+  - platform: device
+    device_id: 5dd4c4cf2ba4bd9f76740774db8b677a
+    domain: device_tracker
+    entity_id: device_tracker.iphone_de_andre
+    type: enters
+    zone: zone.home
+  condition: []
+  action:
+  - type: turn_on
+    device_id: aa87fffbf3eabba0d7deaea4d97b32b9
+    entity_id: light.raver_1_plus
+    domain: light
+  mode: single
+- id: '1673958559549'
+  alias: Reconhecimento pessoas
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: image_processing.doods_ai_camera
+    above: '0'
+    attribute: person
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.5050_aaa_zone_1_alarm
+    state: armed_away
+  action:
+  - type: turn_on
+    device_id: aa87fffbf3eabba0d7deaea4d97b32b9
+    entity_id: light.raver_1_plus
+    domain: light
+  - service: notify.persistent_notification
+    data:
+      title: alarmne
+      message: '![image](/local/doods.jpg)'
+  mode: single
+- id: '1675156409920'
+  alias: New Automation
+  description: ''
+  trigger:
+  - platform: time
+    at: 09:15:00
+  condition: []
+  action:
+  - service: camera.snapshot
+    data:
+      filename: /config/www/cam_snap.jpg
+    target:
+      entity_id:
+      - camera.blueprint_teste
+  mode: single
+- id: '1680512279748'
+  alias: AI FACE vasco
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{% set admin_detected = ''admin'' in state_attr(''image_processing.face_recognition_central'',
+      ''matched_faces'') %}
+
+      {{ admin_detected }}'
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.escritorio_av
+  mode: single
+- id: '1680710228001'
+  alias: AI FACE ADNRE
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{% set test_detected = ''Test'' in state_attr(''image_processing.face_recognition_central'',
+      ''matched_faces'') %}
+
+      {{ test_detected }}'
+  condition: []
+  action:
+  - type: toggle
+    device_id: 56f5f3889e91c7b3f70b5d6f4c8fba3f
+    entity_id: switch.escritorio_av
+    domain: switch
+  mode: single
+- id: '1680710644122'
+  alias: plates
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{% set plate_detected = ''B58BPS'' in state_attr(''image_processing.deepstack_object_hd_ipc_profile_000'',
+      ''summary'') %}
+
+      {{ plate_detected }}'
+  condition: []
+  action:
+  - type: toggle
+    device_id: aa87fffbf3eabba0d7deaea4d97b32b9
+    entity_id: light.raver_1_plus
+    domain: light
+  mode: single
+- id: '1683132193908'
+  alias: grupo
+  description: ''
+  use_blueprint:
+    path: group.yaml
+    input:
+      optional_input: Turn On
+      switch_target:
+        entity_id:
+        - switch.escritorio_av
+        - switch.raceland_1c9dc2c10078_switch_relay_1
+- id: '1683196566925'
+  alias: Nova Automatização
+  description: ''
+  use_blueprint:
+    path: time_delay.yaml
+    input:
+      optional_input_action: Toggle
+      device_trigger: light.dimmer1
+      switch_target:
+        entity_id: switch.escritorio_av
+      optional_input_trigger: Turned On
+- id: '1683541710617'
+  alias: localizaçao
+  description: ''
+  use_blueprint:
+    path: enter_zone.yaml
+    input:
+      optional_input: Turn On
+      person_entity: device_tracker.releasev2
+      zone_entity: zone.casa
+      light_target:
+        entity_id:
+        - light.dimmer2
+        - light.dimmer3
+        - light.dimmer4
+        - light.dimmer1

@@ -1,0 +1,46 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "AI Facial dashboard",
+        "description": "Set parameters of the integration",
+        "data": {
+          "dev_mode": "Turn on developer mode",
+          "ip_address": "API IP Address",
+          "port": "API Port",
+          "api_recognition_key": "CompreFace Recognition API key",
+          "api_detetion_key": "CompreFace detection API key",
+          "detect_only": "Detect Face Only (does not perform recognition)",
+          "save_file_folder": "Save file folder",
+          "save_faces": "Save Faces",
+          "save_faces_folder": "Save Face Folder",
+          "save_timestamped_file": "Save Timestamped file",
+          "show_boxes": "Show Boxes",
+          "min_confidance": "Minimum confidence"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "AI Facial dashboard",
+        "description": "Set parameters of the integration",
+        "data": {
+          "dev_mode": "Turn on developer mode",
+          "ip_address": "API IP Address",
+          "port": "API Port",
+          "api_recognition_key": "CompreFace Recognition API key",
+          "api_detetion_key": "CompreFace detection API key",
+          "detect_only": "Detect Face Only (does not perform recognition)",
+          "save_file_folder": "Save file folder",
+          "save_faces": "Save Faces",
+          "save_faces_folder": "Save Face Folder",
+          "save_timestamped_file": "Save Timestamped file",
+          "show_boxes": "Show Boxes", 
+          "min_confidance": "Minimum confidence"
+        }
+      }
+    }
+  }
+}

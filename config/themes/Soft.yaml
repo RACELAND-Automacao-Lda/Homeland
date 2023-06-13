@@ -1,0 +1,250 @@
+Soft:
+  # Raquel:
+  raquel-white: "#FFFFFF"
+  raquel-blue-1: "#F1F6F6"
+  raquel-blue-2: "#DDE8E7"
+  raquel-blue-3: "#ACCED2"
+  raquel-blue-4: "#7BBBBA"
+  raquel-blue-5: "#257A84"
+  raquel-blue-6: "#206972"
+  raquel-dark: "#223E42"
+
+  # main colors
+  primary-color: var(--raquel-white)
+  accent-color: var(--raquel-blue-5)
+  # Backgrounds
+  primary-background-color: var(--raquel-blue-1) ##hover dos dropdowns
+  secondary-background-color: var(--raquel-blue-2)
+  card-background-color: var(--raquel-white)
+  header-card-picker-background: var(--raquel-blue-1)
+  # Text
+  primary-text-color: var(--raquel-dark)
+  secondary-text-color: var(--raquel-blue-4)
+  disabled-text-color: rgba(95, 99, 104, 0.4)
+  app-header-text-color: var(--raquel-dark)
+  header-text-color: var(--raquel-dark)
+  # Switches
+  switch-checked-button-color: var(--accent-color)
+  switch-checked-track-color: var(--accent-color)
+  switch-unchecked-button-color: var(--raquel-blue-3)
+  switch-unchecked-track-color: var(--raquel-blue-4)
+  # Other colors
+  divider-color: rgba(0, 0, 0, .12);
+  mdc-ripple-color: "#AAAAAA"
+
+  # novas variaveis
+  background-color-rgb: rgb(254,251,251)
+  background-color-rgb-hover: rgba(37,122,132,0.2)
+  ha-fab-text-color: var(--raquel-white)
+  paper-slider-disabled-knob-color: var(--accent-color)
+  slider-color: var(--accent-color)
+  app-header-edit-background-color: var(--raquel-blue-5)
+  app-header-selection-bar-color: var(--raquel-dark)
+  form-border: var(--raquel-dark)
+  divider-editor: rgba(0, 0, 0, .2)
+  sidebar-text-color-select: var(--raquel-dark)
+  sidebar-icon-color-select: var(--raquel-dark)
+  app-header-edit-text-color: var(--raquel-dark)
+
+  # States and Badges
+  state-icon-color: var(--raquel-blue-3)
+  state-icon-active-color: var(--raquel-blue-5)
+
+  input-fill-color: var(--raquel-white)
+  input-ink-color: var(--raquel-dark)
+  input-label-ink-color: var(--raquel-blue-6)
+  input-idle-line-color: rgba(0, 0, 0, 0.42)
+  input-hover-line-color: rgba(0, 0, 0, 0.87)
+  input-disabled-line-color: rgba(0, 0, 0, 0.06)
+  input-outlined-idle-border-color: rgba(0, 0, 0, 0.38)
+  input-outlined-hover-border-color: rgba(0, 0, 0, 0.87)
+  input-outlined-disabled-border-color: rgba(0, 0, 0, 0.06)
+  input-disabled-fill-color: rgb(250, 250, 250)
+  input-disabled-ink-color: rgba(0, 0, 0, 0.37)
+  input-dropdown-icon-color: rgba(0, 0, 0, 0.54)
+
+  codemirror-keyword: "#C792EA"
+  codemirror-operator: "#89DDFF"
+  codemirror-variable: "#f07178"
+  codemirror-variable-2: "#EEFFFF"
+  codemirror-variable-3: "#DECB6B"
+  codemirror-builtin: "#FFCB6B"
+  codemirror-atom: "#F78C6C"
+  codemirror-number: "#FF5370"
+  codemirror-def: "#82AAFF"
+  codemirror-string: "#C3E88D"
+  codemirror-string-2: "#f07178"
+  codemirror-comment: "#545454"
+  codemirror-tag: "#FF5370"
+  codemirror-meta: "#FFCB6B"
+  codemirror-attribute: "#C792EA"
+  codemirror-property: "#C792EA"
+  codemirror-qualifier: "#DECB6B"
+  codemirror-type: "#DECB6B"
+  energy-grid-return-color: "#a280db"
+  mdc-switch__pointer_events: auto
+
+  state-icon-error-color: var(--error-state-color var(--error-color))
+  state-unavailable-color:
+    var(--state-icon-unavailable-color var(--disabled-text-color))
+  sidebar-text-color: var(--secondary-text-color)
+  sidebar-icon-color: var(--secondary-text-color)
+  sidebar-background-color: var(--card-background-color)
+  sidebar-selected-text-color: var(--sidebar-text-color-select)
+  sidebar-selected-icon-color: var(--sidebar-icon-color-select)
+  switch-checked-color: var(--primary-text-color)
+  # switch-checked-button-color:
+  #   var(--switch-checked-color var(--primary-background-color))
+  # switch-checked-track-color: var(--switch-checked-color #000000)
+  # switch-unchecked-button-color:
+  #   var(--switch-unchecked-color var(--primary-background-color))
+  # switch-unchecked-track-color: var(--switch-unchecked-color #000000)
+  slider-secondary-color: var(--light-primary-color)
+  slider-track-color: var(--scrollbar-thumb-color)
+  label-badge-background-color: var(--card-background-color)
+  label-badge-text-color: rgba(var(--rgb-primary-text-color) 0.8)
+  paper-listbox-background-color: var(--card-background-color)
+  paper-item-icon-color: var(--state-icon-color)
+  paper-item-icon-active-color: var(--state-icon-active-color)
+  table-row-background-color: var(--primary-background-color)
+  table-row-alternative-background-color: var(--secondary-background-color)
+  paper-slider-knob-color: var(--slider-color)
+  paper-slider-knob-start-color: var(--slider-color)
+  paper-slider-pin-color: var(--slider-color)
+  paper-slider-pin-start-color: var(--slider-color)
+  paper-slider-active-color: var(--slider-color)
+  paper-slider-secondary-color: var(--slider-secondary-color)
+  paper-slider-container-color: var(--slider-track-color)
+  data-table-background-color: var(--card-background-color)
+  markdown-code-background-color: var(--primary-background-color)
+
+  # // https://github.com/material-components/material-web/blob/master/docs/theming.md
+  mdc-theme-primary: var(--accent-color)
+  mdc-theme-secondary: var(--accent-color)
+  mdc-theme-background: var(--input-fill-color)
+  mdc-theme-surface: var(--card-background-color)
+  mdc-theme-on-primary: var(--primary-text-color)
+  mdc-theme-on-secondary: var(--app-header-text-color)
+  mdc-theme-on-surface: var(--primary-text-color)
+  mdc-theme-text-disabled-on-light: var(--disabled-text-color)
+  mdc-theme-text-primary-on-background: var(--primary-text-color)
+  mdc-theme-text-secondary-on-background: var(--secondary-text-color)
+  mdc-theme-text-hint-on-background: var(--secondary-text-color)
+  mdc-theme-text-icon-on-background: var(--secondary-text-color)
+  mdc-theme-error: var(--error-color)
+  app-header-background-color: var(--primary-color)
+  mdc-checkbox-unchecked-color: var(--primary-text-color)
+  mdc-checkbox-disabled-color: var(--disabled-text-color)
+  mdc-radio-unchecked-color: rgba(var(--rgb-primary-text-color), 0.54)
+  mdc-radio-disabled-color: var(--disabled-text-color)
+  mdc-tab-text-label-color-default: var(--primary-text-color)
+  mdc-button-disabled-ink-color: var(--disabled-text-color)
+  mdc-button-outline-color: var(--divider-color)
+  mdc-dialog-scroll-divider-color: var(--divider-color)
+
+  mdc-text-field-idle-line-color: var(--input-idle-line-color)
+  mdc-text-field-hover-line-color: var(--input-hover-line-color)
+  mdc-text-field-disabled-line-color: var(--input-disabled-line-color)
+  mdc-text-field-outlined-idle-border-color:
+    var(--input-outlined-idle-border-color)
+  mdc-text-field-outlined-hover-border-color:
+    var(--input-outlined-hover-border-color)
+  mdc-text-field-outlined-disabled-border-color:
+    var(--input-outlined-disabled-border-color)
+  mdc-text-field-fill-color: var(--input-fill-color)
+  mdc-text-field-disabled-fill-color: var(--input-disabled-fill-color)
+  mdc-text-field-ink-color: var(--input-ink-color)
+  mdc-text-field-label-ink-color: var(--input-label-ink-color)
+  mdc-text-field-disabled-ink-color: var(--input-disabled-ink-color)
+
+  mdc-select-idle-line-color: var(--input-idle-line-color)
+  mdc-select-hover-line-color: var(--input-hover-line-color)
+  mdc-select-outlined-idle-border-color:
+    var(--input-outlined-idle-border-color)
+  mdc-select-outlined-hover-border-color:
+    var(--input-outlined-hover-border-color)
+  mdc-select-outlined-disabled-border-color:
+    var(--input-outlined-disabled-border-color)
+  mdc-select-fill-color: var(--input-fill-color)
+  mdc-select-disabled-fill-color: var(--input-disabled-fill-color)
+  mdc-select-ink-color: var(--input-ink-color)
+  mdc-select-label-ink-color: var(--input-label-ink-color)
+  mdc-select-disabled-ink-color: var(--input-disabled-ink-color)
+  mdc-select-dropdown-icon-color: var(--input-dropdown-icon-color)
+  mdc-select-disabled-dropdown-icon-color: var(--input-disabled-ink-color)
+
+  chip-background-color: rgba(var(--rgb-primary-text-color), 0.15)
+  # // Vaadin
+  material-body-text-color: var(--primary-text-color)
+  material-background-color: var(--card-background-color)
+  material-secondary-background-color: var(--secondary-background-color)
+  material-secondary-text-color: var(--secondary-text-color)
+
+  # # Header:
+  # app-header-background-color: rgb(248, 248, 248)
+  # app-header-text-color: rgb(95, 99, 104)
+  # # Main Interface Colors
+  # light-primary-color: var(--primary-color)
+  # primary-background-color: rgb(248, 248, 248)
+  # pri-background-color: rgb(156, 154, 154)
+  # secondary-background-color: rgb(230, 230, 230)
+  # divider-color: var(--primary-background-color)
+  # accent-color: rgb(26, 115, 232)
+  # # Sidebar Menu
+  # sidebar-icon-color: rgb(95, 99, 104)
+  # sidebar-text-color: var(--sidebar-icon-color)
+  # sidebar-background-color: rgb(255, 255, 255)
+  # # sidebar-selected-background-color: var(--primary-background-color)
+  # sidebar-selected-icon-color: rgb(26, 115, 232)
+  # sidebar-selected-text-color: var(--sidebar-selected-icon-color)
+  # # sidebar-iron-selected-opacity: var(--iron-selected-opacity, 0)
+  # # Buttons
+  # paper-item-icon-color: rgb(26, 115, 232) # cor dos icons das cards
+  # paper-item-icon-active-color: "#fdd835"
+  # # States and Badges
+  # state-icon-color: rgb(26, 115, 232)
+  # state-icon-active-color: rgb(95, 99, 104)
+  # state-icon-unavailable-color: var(--disabled-text-color)
+  # # Sliders
+  # paper-slider-knob-color: rgb(26, 115, 232)
+  # paper-slider-knob-start-color: var(--paper-slider-knob-color)
+  # paper-slider-pin-color: var(--paper-slider-knob-color)
+  # paper-slider-active-color: var(--paper-slider-knob-color)
+  # paper-slider-secondary-color: var(--light-primary-color)
+  # # Labels
+  # label-badge-background-color: rgb(248, 250, 249)
+  # label-badge-text-color: rgb(77, 85, 117)
+  # label-badge-red: rgb(199, 72, 76)
+  # label-badge-green: rgb(109, 192, 113)
+  # label-badge-blue: rgb(26, 115, 232)
+  # label-badge-yellow: rgb(217, 183, 87)
+  # label-badge-gray: rgb(95, 98, 103)
+  # # Cards
+  # card-background-color: rgba(255, 255, 255, 0.9)
+  # # ha-card-border-radius: "25px"
+  # # ha-card-box-shadow: 1px 1px 5px 0px rgb(230, 230, 230)
+  # paper-dialog-background-color: var(--card-background-color)
+  # paper-listbox-background-color: var(--card-background-color)
+  # paper-card-background-color: var(--card-background-color)
+  # # Switches
+  # switch-checked-button-color: rgb(26, 115, 232)
+  # switch-checked-track-color: rgb(26, 115, 232)
+  # switch-unchecked-button-color: rgb(189, 193, 198)
+  # switch-unchecked-track-color: rgb(189, 193, 198)
+  # # Toggles
+  # paper-toggle-button-checked-button-color: var(--switch-checked-button-color)
+  # paper-toggle-button-checked-bar-color: var(--switch-checked-track-color)
+  # paper-toggle-button-unchecked-button-color: var(--switch-unchecked-button-color)
+  # paper-toggle-button-unchecked-bar-color: var(--switch-unchecked-track-color)
+  # # Table
+  # table-row-background-color: var(--card-background-color)
+  # table-row-alternative-background-color: var(--primary-background-color)
+  # data-table-background-color: var(--primary-background-color)
+  # # Dropdowns
+  # material-background-color: var(--card-background-color)
+  # material-secondary-background-color: var(--primary-background-color)
+  # mdc-theme-surface: var(--paper-card-background-color)
+  # # Pre/Code
+  # markdown-code-background-color: rgb(242, 242, 242)
+  # ### Border Radius and Box Shadow - ADICIONADO ISTO
+  # border-radius: 25px

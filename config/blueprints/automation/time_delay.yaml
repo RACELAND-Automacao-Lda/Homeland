@@ -1,0 +1,148 @@
+blueprint:
+  name: sequence
+  description: sequence_description
+  icon: "M15 3H9V1H15V3M13 19C13 20.03 13.26 21 13.71 21.83C13.16 21.94 12.59 22 12 22C7.03 22 3 17.97 3 13S7.03 4 12 4C14.12 4 16.07 4.74 17.62 6L19.04 4.56C19.55 5 20 5.46 20.45 5.97L19.03 7.39C20.26 8.93 21 10.88 21 13C21 13.12 21 13.23 21 13.35C20.36 13.13 19.7 13 19 13C15.69 13 13 15.69 13 19M13 7H11V14H13V7M17 16V22L22 19L17 16Z"
+  group: time
+  domain: automation
+  input:
+    device_trigger:
+      name: device_trigger_name
+      description: device_trigger_description
+      selector:
+        entity:
+          domain: light
+    optional_input_trigger:
+      name: trigger_state
+      description: trigger_state_description
+      default: 'Turned On'
+      selector:
+        select:
+          options:
+            - 'Turned On'
+            - 'Turned Off'
+            - 'Changed State'
+    switch_target:
+      name: switch_target_name
+      description: device_action_switch_description
+      default: {}
+      selector:
+        target:
+          entity:
+            domain: switch
+    light_target:
+      name: light_target_name
+      description: device_action_light_description
+      default: {}
+      selector:
+        target:
+          entity:
+            domain: light
+    optional_input_action:
+      name: action_state
+      description: action_state_description
+      default: 'Turn On'
+      selector:
+        select:
+          options:
+            - 'Turn On'
+            - 'Turn Off'
+            - 'Toggle'
+    no_motion_wait:
+      name: wait_time_name
+      description: wait_time_description
+      default: 1
+      selector:
+        number:
+          min: 1
+          max: 60
+          unit_of_measurement: minutes
+trigger:
+  platform: state
+  entity_id: !input device_trigger
+
+
+variables:
+  light_target: !input light_target
+  switch_target: !input switch_target
+  device_trigger: !input device_trigger
+  optional_input_trigger: !input optional_input_trigger
+  optional_input_action: !input optional_input_action
+  no_motion_wait: !input no_motion_wait
+
+condition: []
+
+action:
+  - choose:
+      - conditions: "{{ device_trigger|length > 0 and optional_input_trigger == 'Turned On' and optional_input_action == 'Turn On' and trigger.from_state.state != 'on' and trigger.to_state.state == 'on' }}"
+        sequence:
+          - delay:
+              minutes: "{{ no_motion_wait }}"
+          - service: homeassistant.turn_on
+            target: !input light_target
+          - service: homeassistant.turn_on
+            target: !input switch_target
+      - conditions: "{{ optional_input_trigger == 'Turned On' and optional_input_action == 'Turn Off' and trigger.from_state.state != 'on' and trigger.to_state.state == 'on' }}"
+        sequence:
+          - delay:
+              minutes: "{{ no_motion_wait }}"
+          - service: homeassistant.turn_off
+            target: !input light_target
+          - service: homeassistant.turn_off
+            target: !input switch_target
+      - conditions: "{{ optional_input_trigger == 'Turned Off' and optional_input_action == 'Turn On' and trigger.from_state.state != 'off' and trigger.to_state.state == 'off' }}"
+        sequence:
+          - delay:
+                minutes: "{{ no_motion_wait }}"
+          - service: homeassistant.turn_on
+            target: !input light_target
+          - service: homeassistant.turn_on
+            target: !input switch_target
+      - conditions: "{{ optional_input_trigger == 'Turned Off' and optional_input_action == 'Turn Off' and trigger.from_state.state != 'off' and trigger.to_state.state == 'off' }}"
+        sequence:
+          - delay:
+              minutes: "{{ no_motion_wait }}"
+          - service: homeassistant.turn_off
+            target: !input light_target
+          - service: homeassistant.turn_off
+            target: !input switch_target
+      - conditions: "{{ optional_input_trigger == 'Changed State' and optional_input_action == 'Turn Off' and trigger.from_state.state != trigger.to_state.state }}"
+        sequence:
+          - delay:
+                minutes: "{{ no_motion_wait }}"
+          - service: homeassistant.turn_off
+            target: !input light_target
+          - service: homeassistant.turn_off
+            target: !input switch_target
+      - conditions: "{{ optional_input_trigger == 'Changed State' and optional_input_action == 'Turn On' and trigger.from_state.state != trigger.to_state.state }}"
+        sequence:
+          - delay:
+              minutes: "{{ no_motion_wait }}"
+          - service: homeassistant.turn_on
+            target: !input light_target
+          - service: homeassistant.turn_on
+            target: !input switch_target
+      - conditions: "{{ optional_input_trigger == 'Changed State' and optional_input_action == 'Toggle' and trigger.from_state.state != trigger.to_state.state }}"
+        sequence:
+          - delay:
+              minutes: "{{ no_motion_wait }}"
+          - service: homeassistant.toggle
+            target: !input light_target
+          - service: homeassistant.toggle
+            target: !input switch_target
+      - conditions: "{{ optional_input_trigger == 'Turned On' and optional_input_action == 'Toggle' and trigger.from_state.state != 'on' and trigger.to_state.state == 'on' }}"
+        sequence:
+          - delay:
+              minutes: "{{ no_motion_wait }}"
+          - service: homeassistant.toggle
+            target: !input light_target
+          - service: homeassistant.toggle
+            target: !input switch_target
+      - conditions: "{{ optional_input_trigger == 'Turned Off' and optional_input_action == 'Toggle' and trigger.from_state.state != 'off' and trigger.to_state.state == 'off' }}"
+        sequence:
+          - delay:
+              minutes: "{{ no_motion_wait }}"
+          - service: homeassistant.toggle
+            target: !input light_target
+          - service: homeassistant.toggle
+            target: !input switch_target
+    default: []

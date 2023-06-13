@@ -1,0 +1,250 @@
+default_config:
+
+homeassistant:
+  customize: !include customize.yaml
+  allowlist_external_dirs:
+    - '/config/'
+  # auth_providers:
+  #   - type: legacy_api_password
+  #     api_password: "raceland2015"
+  #   - type: homeassistant
+  #   - type: trusted_networks
+  #     trusted_networks:
+  #       - 192.168.1.0/24
+media_source:
+
+#This dashboard will be used to show configuration related to Raceland integrations
+lovelace:
+  mode: storage
+  dashboards: !include lovelace_raceland_dashboards.yaml
+
+frontend:
+  # themes: !include_dir_merge_named themes
+  development_repo: /workspaces/frontend/
+
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+logger:
+  default: info
+  logs:
+    homeassistant.components.cloud: debug
+
+stream:
+  ll_hls: true
+
+
+mqtt:
+  broker: !secret mybroker
+
+#pyscript: !include pyscript/configs.yaml
+
+sensor: !include sensor.yaml
+
+switch: !include switch.yaml
+
+broadlink:
+
+# telegram_bot:
+#   - platform: polling
+#     api_key: 5397410299:AAESjOkdB2pdc5wQHZWXlf-pAnLE48C6Y6Q
+#     allowed_chat_ids:
+#       - 5293565482
+
+
+# Example configuration.yaml entry for the notifier
+# notify:
+#   - platform: telegram
+#     name: "Vasco Bartolomeu"
+#     chat_id: 5293565482
+    
+camera_dashboard_raceland: 
+  data: 
+    !include camera_dashboard_raceland_database.yaml
+
+cover:
+  - platform: template
+    covers:
+      shade:
+        device_class: blind
+        unique_id: "shade"
+        friendly_name: "Shade"
+        position_template: "{{ states('number.lumi_lumi_curtain_acn002_51724a00_analog_output') | int }}"
+        set_cover_position:
+          service: number.set_value
+          target:
+            entity_id: number.lumi_lumi_curtain_acn002_51724a00_analog_output
+          data:
+            value: "{{position}}"
+        open_cover:
+          service: number.set_value
+          target:
+            entity_id: number.lumi_lumi_curtain_acn002_51724a00_analog_output
+          data:
+            value: "100"
+        close_cover:
+          service: number.set_value
+          target:
+            entity_id: number.lumi_lumi_curtain_acn002_51724a00_analog_output
+          data:
+            value: "0"
+        #stop_cover:
+          #service: number.set_value
+          #target:
+           # entity_id: number.lumi_lumi_curtain_acn002_51724a00_analog_output
+        #  data:
+         #   value: "{{ states('number.lumi_lumi_curtain_acn002_51724a00_analog_output')}}"
+
+wake_on_lan:
+
+- type: 'custom:lg-remote-control'
+  entity: media_player.tv_lg_55c8
+  mac: xx:xx:xx:xx
+  sources:
+    - name: Netflix
+      icon: 'mdi:netflix'
+    - name: Amazon Prime Video
+      icon: 'mdi:amazon'
+    - name: Disney
+      icon: disney
+    - name: Dazn
+      icon: dazn
+    - name: YouTube
+      icon: 'mdi:youtube-tv'
+    - name: HDMI 1
+      icon: 'mdi:video-input-hdmi'
+    - name: HDMI 2
+      icon: 'mdi:video-input-hdmi'
+
+image_processing:
+  - platform: doods
+    url: http://192.168.1.142:8080
+    detector: pytorch
+    scan_interval: 5
+    source:
+      - entity_id: camera.ai_camera
+    file_out: /config/www/doods.jpg
+    confidence: 55
+  - platform: deepstack_object
+    ip_address: 192.168.1.142
+    port: 5070
+    timeout: 10
+    save_file_folder: /config/www/deepstack/plates
+    #custom_model: licence-plate
+    always_save_latest_file: True
+    targets:
+     - target: car
+       confidence: 70
+     - target: truck
+       confidence: 70
+     - target: motorcycle
+       confidence: 70
+     - target: bicycle
+       confidence: 70
+     - target: bus
+       confidence: 70
+     - target: person
+       confidence: 70
+    source:
+     - entity_id: camera.ai_camera
+
+
+camera:
+ - authentication: digest
+   framerate: 60.0
+   name: ai_camera
+   password: raceland2015
+   platform: generic
+   rtsp_transport: tcp
+   still_image_url: http://192.168.1.176/ISAPI/Streaming/channels/101/picture
+   stream_source: rtsp://admin:raceland2015@192.168.1.176:554/Streaming/Channels/101/
+   username: admin
+   verify_ssl: 'True'
+#  - authentication: digest
+#    framerate: 60.0
+#    name: bullet rua
+#    password: raceland2015
+#    platform: generic
+#    rtsp_transport: tcp
+#    still_image_url: http://192.168.1.64/ISAPI/Streaming/channels/101/picture
+#    stream_source: rtsp://admin:raceland2015@192.168.1.64:554/Streaming/Channels/101/
+#    username: admin
+#    verify_ssl: 'True'
+#  - authentication: digest
+#    framerate: 60.0
+#    name: ansice
+#    password: raceland2015
+#    platform: generic
+#    rtsp_transport: tcp
+#    stream_source: rtsp://admin:raceland2015@192.168.1.11:554/live
+#    username: admin
+#    verify_ssl: 'True'
+#  - authentication: digest
+#    framerate: 60.0
+#    name: camera caravana
+#    password: raceland2015
+#    platform: generic
+#    rtsp_transport: tcp
+#    stream_source: rtsp://admin:raceland2015@192.168.1.64:554/stream1
+#    username: admin
+#    verify_ssl: 'True'
+#  - authentication: digest
+#    framerate: 60.0
+#    name: xavier camera
+#    password: raceland2015
+#    platform: generic
+#    rtsp_transport: tcp
+#    still_image_url: http://192.168.1.50/ISAPI/Streaming/channels/401/picture
+#    stream_source: rtsp://admin:raceland2015@192.168.1.50:554/Streaming/Channels/401/
+#    username: admin
+#    verify_ssl: 'True'
+#  - authentication: digest
+#    framerate: 60.0
+#    name: Portao camera
+#    password: raceland2015
+#    platform: generic
+#    rtsp_transport: tcp
+#    still_image_url: http://192.168.1.50/ISAPI/Streaming/channels/1201/picture
+#    stream_source: rtsp://admin:raceland2015@192.168.1.50:554/Streaming/Channels/1201/
+#    username: admin
+#    verify_ssl: 'True'    
+    
+panel_custom:
+  - name: panel-redirect
+    # url_path needs to be unique for each panel_custom config
+    url_path: automation-redirect-panel
+    sidebar_title: automation
+    sidebar_icon: mdi:robot
+    module_url: /local/panel-redirect.js
+    require_admin: true
+    config:
+      # Where you want to redirect to
+      target: /config/automation/dashboard
+  - name: panel-redirect
+    # url_path needs to be unique for each panel_custom config
+    url_path: integration-redirect-panel
+    sidebar_title: integration
+    sidebar_icon: mdi:devices
+    module_url: /local/panel-redirect.js
+    require_admin: true
+    config:
+      # Where you want to redirect to
+      target: /config/integrations
+
+
+# binary_sensor:
+#   - platform: mqtt
+#     name: Kincony Motion
+#     state_topic: stat/raver_5869E4/RESULT
+#     value_template: '{{value_json["PCF8574-2_INP"]["D2"] or 1}}'
+#     payload_on: "0"
+#     payload_off: "1"
+#     device_class: motion
+#     qos: 0

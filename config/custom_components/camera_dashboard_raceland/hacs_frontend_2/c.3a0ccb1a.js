@@ -1,0 +1,1 @@
+const e=(e,i)=>{e.callService("automation","trigger",{entity_id:i,skip_condition:!0})},i=(e,i,t,s)=>e.connection.subscribeMessage(i,{type:"subscribe_trigger",trigger:t,variables:s});export{i as s,e as t};

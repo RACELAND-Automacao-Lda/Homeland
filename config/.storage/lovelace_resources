@@ -1,0 +1,54 @@
+{
+    "version": 1,
+    "minor_version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "url": "/local/blind-card.js",
+                "type": "module",
+                "id": "5ef269e6712f4776add43af27476a260"
+            },
+            {
+                "url": "/local/garage/garage-card.js",
+                "type": "module",
+                "id": "bcbc95456a064a18ad7e8f9f2e41b6d1"
+            },
+            {
+                "url": "/local/panel-redirect.js",
+                "type": "module",
+                "id": "33d0fae33a3d46f6ad28ff828b5c6688"
+            },
+            {
+                "url": "local/broadlink/broadlink-remote-card.js",
+                "type": "module",
+                "id": "d5deec0c34374e0f9b1055530e6dcf41"
+            },
+            {
+                "url": "/local/ajax/ajax-card.js",
+                "type": "module",
+                "id": "e4ce19e82c6d4362a3978a4c235d62df"
+            },
+            {
+                "url": "/local/lg/lg-card.js",
+                "type": "module",
+                "id": "cedc27624feb4b249dbc80cbe4ef8e4e"
+            },
+            {
+                "url": "/local/fan-card.js",
+                "type": "module",
+                "id": "7abed118990c4454885d5e6009b0bc21"
+            },
+            {
+                "url": "/local/swipe-card.js",
+                "type": "module",
+                "id": "d08053382a1b4b5c972a9efcbc753c78"
+            },
+            {
+                "url": "/local/custom-icons-user.js",
+                "type": "module",
+                "id": "d2a0ef6b58ba4e74b32f2079b93e3b22"
+            }
+        ]
+    }
+}

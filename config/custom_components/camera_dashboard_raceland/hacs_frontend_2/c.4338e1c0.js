@@ -1,0 +1,9 @@
+import{_ as a,d as e,g as t,t as s,c as i,x as n,f as o,q as c}from"./main-b570e60a.js";import"./c.9e58f139.js";import{al as l,am as r,an as m,ao as d,as as h,aq as u}from"./c.5a5021e9.js";import{b as f}from"./c.08872315.js";import"./c.f9bdd698.js";import"./c.2aff7a3c.js";import"./c.81a9389e.js";import"./c.a5b80b3f.js";import"./c.3df9613c.js";import"./c.a6c70980.js";const p=l(f,r({entity:m(d()),name:m(d()),states:m(h())})),_=["arm_home","arm_away","arm_night","arm_vacation","arm_custom_bypass"];let v=a([c("hui-alarm-panel-card-editor")],(function(a,e){return{F:class extends e{constructor(...e){super(...e),a(this)}},d:[{kind:"field",decorators:[t({attribute:!1})],key:"hass",value:void 0},{kind:"field",decorators:[s()],key:"_config",value:void 0},{kind:"method",key:"setConfig",value:function(a){u(a,p),this._config=a}},{kind:"field",key:"_schema",value:()=>i((a=>[{name:"entity",required:!0,selector:{entity:{domain:"alarm_control_panel"}}},{name:"name",selector:{text:{}}},{type:"multi_select",name:"states",options:_.map((e=>[e,a(`ui.card.alarm_control_panel.${e}`)]))}]))},{kind:"method",key:"render",value:function(){return this.hass&&this._config?n`
+      <ha-form
+        .hass=${this.hass}
+        .data=${this._config}
+        .schema=${this._schema(this.hass.localize)}
+        .computeLabel=${this._computeLabelCallback}
+        @value-changed=${this._valueChanged}
+      ></ha-form>
+    `:n``}},{kind:"method",key:"_valueChanged",value:function(a){o(this,"config-changed",{config:a.detail.value})}},{kind:"field",key:"_computeLabelCallback",value(){return a=>"entity"===a.name?this.hass.localize("ui.panel.lovelace.editor.card.generic.entity"):"name"===a.name?this.hass.localize("ui.panel.lovelace.editor.card.generic.name"):this.hass.localize(`ui.panel.lovelace.editor.card.alarm-panel.${"states"===a.name?"available_states":a.name}`)}}]}}),e);export{v as HuiAlarmPanelCardEditor};

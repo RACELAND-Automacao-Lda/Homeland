@@ -1,0 +1,1 @@
+import{f as a}from"./main-b570e60a.js";const o=(o,i)=>{a(o,"show-dialog",{dialogTag:"dialog-media-player-browse",dialogImport:()=>import("./c.b25da387.js").then((function(a){return a.d})),dialogParams:i})};export{o as s};
